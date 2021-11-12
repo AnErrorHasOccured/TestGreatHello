@@ -1,4 +1,5 @@
 ﻿using System;
+using TestGreatHello.IoC;
 
 namespace TestGreatHello
 {
@@ -6,7 +7,8 @@ namespace TestGreatHello
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var greet= Container.GetService<IGreetHello>();
+            Console.WriteLine(greet.GreetHello(args));
         }
     }
 }

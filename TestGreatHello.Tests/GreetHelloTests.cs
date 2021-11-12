@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using TestGreatHello.IoC;
 
 namespace TestGreatHello.Tests
 {
@@ -9,7 +10,7 @@ namespace TestGreatHello.Tests
         [SetUp]
         public void Setup()
         {
-            _sut = new Greet();
+            _sut = Container.GetService<IGreetHello>();
         }
 
         [Test]
@@ -64,6 +65,7 @@ namespace TestGreatHello.Tests
             var actual = _sut.GreetHello("Gino", "Pino", "Rino, Vino");
             Assert.AreEqual("Hello, Gino, Pino, Rino and Vino.",actual);
         }
+
         [Test]
         public void Should_Handle_Element_With_Sign()
         {
@@ -72,7 +74,7 @@ namespace TestGreatHello.Tests
         }
 
         [Test]
-
+        [Ignore("Sandbox")]
         public void Sandbox()
         {
             var actual = _sut.GreetHello("BOB", "\"CHARLIE, Dianne\"");

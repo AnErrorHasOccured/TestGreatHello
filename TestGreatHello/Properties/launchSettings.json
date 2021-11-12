@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TestGreatHello": {
+      "commandName": "Project",
+      "commandLineArgs": "Pippo Parerino PLUTO"
+    }
+  }
+}
