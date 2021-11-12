@@ -1,4 +1,3 @@
-using System.Net.NetworkInformation;
 using NUnit.Framework;
 
 namespace TestGreatHello.Tests
@@ -46,24 +45,38 @@ namespace TestGreatHello.Tests
         }
 
         [Test]
-        public void ShoulBeMoreNames()
+        public void Should_Handle_More_Names()
         {
             var actual= _sut.GreetHello("Gino", "Pino", "Rino", "Vino");
             Assert.AreEqual("Hello, Gino, Pino, Rino and Vino.", actual);
         }
 
         [Test]
-        public void ShoulBeMixed()
+        public void Should_Handler_Upper_And_Down()
         {
             var actual = _sut.GreetHello("Gino", "Pino", "RINO", "Vino");
             Assert.AreEqual("Hello, Gino, Pino and Vino. AND HELLO RINO!",actual);
         }
 
         [Test]
-        public void ShoulContainComma()
+        public void Should_Handle_Element_With_Comma()
         {
             var actual = _sut.GreetHello("Gino", "Pino", "Rino, Vino");
             Assert.AreEqual("Hello, Gino, Pino, Rino and Vino.",actual);
+        }
+        [Test]
+        public void Should_Handle_Element_With_Sign()
+        {
+            var actual = _sut.GreetHello("Bob", "\"Charlie, Dianne\"");
+            Assert.AreEqual("Hello, Bob and Charlie, Dianne.", actual);
+        }
+
+        [Test]
+
+        public void Sandbox()
+        {
+            var actual = _sut.GreetHello("BOB", "\"CHARLIE, Dianne\"");
+            Assert.Pass(actual);
         }
     }
 }
